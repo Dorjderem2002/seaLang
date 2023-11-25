@@ -1,1 +1,6 @@
-run the project by running run.sh file
+To run the project:
+
+make
+./kimulator
+
+Big thanks to Javidx9 and nesdev.org
