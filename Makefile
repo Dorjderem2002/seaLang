@@ -2,7 +2,7 @@
 TARGET = kimulator
 
 # The following line specifies the source files that will be compiled.
-SRCS = $(wildcard src/*.cpp)
+SRCS = $(wildcard src/*.cpp src/6502/*.cpp)
 
 # The following line specifies the compiler that will be used.
 CC = g++
