@@ -35,16 +35,19 @@ public:
 	void clock();
 
     uint8_t fetch();
-    uint16_t addr_abs = 0x0000;
-    uint16_t addr_rel = 0x0000;
-    uint8_t opcode = 0x00;
-    uint8_t cycles = 0x00;
 
 private:
     BUS *bus = nullptr;
 
     uint8_t read(uint16_t addr);
     void write(uint16_t addr, uint8_t data);
+
+    uint8_t  fetched = 0x00;   
+	uint16_t temp = 0x0000; 
+    uint16_t addr_abs = 0x0000;
+    uint16_t addr_rel = 0x0000;
+    uint8_t opcode = 0x00;
+    uint8_t cycles = 0x00;
 
     uint8_t getFlag(FLAGS f);
     void setFlag(FLAGS f, bool v);
