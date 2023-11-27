@@ -2,16 +2,16 @@
 TARGET = kimulator
 
 # The following line specifies the source files that will be compiled.
-SRCS = $(wildcard src/*.cpp src/6502/*.cpp)
+SRCS = $(wildcard src/6502/*.cpp src/*.cpp )
 
 # The following line specifies the compiler that will be used.
 CC = g++
 
 # The following line specifies the compiler flags that will be used.
-CFLAGS = -Wall -std=c++11
+CFLAGS = -Wall -std=c++17
 
 # The following line specifies the linker flags that will be used.
-LDFLAGS = -lncurses
+LDFLAGS = 
 
 # The following line specifies the dependencies of the executable.
 DEPS =

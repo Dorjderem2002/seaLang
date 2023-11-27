@@ -1,4 +1,7 @@
 #include "CPU.hpp"
+#include "BUS.hpp"
+
+#include <iostream>
 
 CPU::CPU()
 {
@@ -265,6 +268,7 @@ CPU::CPU()
 
 void CPU::connectBus(BUS *newBus)
 {
+    std::cout<<"Bus connected"<<std::endl;
     bus = newBus;
 }
 

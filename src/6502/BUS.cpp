@@ -7,7 +7,7 @@ BUS::BUS()
 {
     for (auto &i : ram) i = 0x00;
     
-    cpu.connectBus(this);
+    cpu->connectBus(this);
 }
 
 void BUS::write(uint16_t addr, uint8_t data) 

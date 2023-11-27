@@ -1,5 +1,7 @@
 #pragma once
 
+#include "6502/BUS.hpp"
+
 class App 
 {
 public:
@@ -9,6 +11,9 @@ public:
     void event();
     void update();
     void draw();
+
+    BUS bus;
+
 private:
     bool isRunning = false;
 };

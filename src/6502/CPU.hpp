@@ -1,8 +1,7 @@
 #pragma once
-
-#include "BUS.hpp"
-
 #include <iostream>
+
+class BUS;
 
 class CPU
 {
@@ -38,7 +37,6 @@ public:
 
 private:
     BUS *bus = nullptr;
-
     uint8_t read(uint16_t addr);
     void write(uint16_t addr, uint8_t data);
 
@@ -134,5 +132,6 @@ private:
     uint8_t TXS();
     uint8_t TYA();
 
+    // llegal Opcode
     uint8_t SUS();
 };
