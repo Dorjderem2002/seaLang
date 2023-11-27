@@ -7,7 +7,7 @@ class CPU
 {
 public:
     CPU();
-    void connectBus(BUS *bus);
+    void connectBus(BUS *newBus);
 
     uint8_t accRegister = 0x00;
     uint8_t xRegister = 0x00;

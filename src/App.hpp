@@ -1,6 +1,7 @@
 #pragma once
 
 #include "6502/BUS.hpp"
+#include "6502/CPU.hpp"
 
 class App 
 {

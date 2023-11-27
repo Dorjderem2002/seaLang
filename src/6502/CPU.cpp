@@ -268,8 +268,8 @@ CPU::CPU()
 
 void CPU::connectBus(BUS *newBus)
 {
-    std::cout<<"Bus connected"<<std::endl;
     bus = newBus;
+    std::cout<<"Bus connected"<<std::endl;
 }
 
 uint8_t CPU::read(uint16_t addr)
