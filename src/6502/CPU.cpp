@@ -5,6 +5,7 @@
 
 CPU::CPU()
 {
+    std::cout<<"CPU Initialized"<<std::endl;
     tableOp = new INSTRUCTION[256]
     {
             {"BRK", &CPU::BRK, &CPU::IMM, 7},

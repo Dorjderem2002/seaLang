@@ -11,10 +11,10 @@ CC = g++
 CFLAGS = -Wall -std=c++17
 
 # The following line specifies the linker flags that will be used.
-LDFLAGS = 
+LDFLAGS = -lsfml-graphics -lsfml-system -lsfml-window -I./include/ -L./lib/
 
 # The following line specifies the dependencies of the executable.
-DEPS =
+DEPS = 
 
 # The following line specifies the rule for building the executable.
 $(TARGET): $(SRCS) $(DEPS)
