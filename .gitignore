@@ -1,3 +1,4 @@
 .vsode/
+.vsode/c_cpp_properties.json
 .DS_Store
 ./kimulator
