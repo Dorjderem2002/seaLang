@@ -1,6 +1,6 @@
 #include "Cartridge.hpp"
 
-Cartridge::Cartridge(const std::string& sFileName)
+Cartridge::Cartridge(const std::string& fileName)
 {
 	// iNES Format Header
 	struct sHeader
@@ -16,16 +16,16 @@ Cartridge::Cartridge(const std::string& sFileName)
 		char unused[5];
 	} header;
 
-	bImageValid = false;
+	imageValid = false;
 
 	std::ifstream ifs;
-	ifs.open(sFileName, std::ifstream::binary);
+	ifs.open(fileName, std::ifstream::binary);
 	if (ifs.is_open())
 	{
 		ifs.read((char*)&header, sizeof(sHeader));
 		if (header.mapper1 & 0x04)
 			ifs.seekg(512, std::ios_base::cur);
-		nMapperID = ((header.mapper2 >> 4) << 4) | (header.mapper1 >> 4);
+		mapperID = ((header.mapper2 >> 4) << 4) | (header.mapper1 >> 4);
 		mirror = (header.mapper1 & 0x01) ? VERTICAL : HORIZONTAL;
 		uint8_t nFileType = 1;
 
@@ -36,25 +36,25 @@ Cartridge::Cartridge(const std::string& sFileName)
 
 		if (nFileType == 1)
 		{
-			nPRGBanks = header.prg_rom_chunks;
-			vPRGMemory.resize(nPRGBanks * 16384);
-			ifs.read((char*)vPRGMemory.data(), vPRGMemory.size());
+			prgBanks = header.prg_rom_chunks;
+			prgMemory.resize(prgBanks * 16384);
+			ifs.read((char*)prgMemory.data(), prgMemory.size());
 
-			nCHRBanks = header.chr_rom_chunks;
-			vCHRMemory.resize(nCHRBanks * 8192);
-			ifs.read((char*)vCHRMemory.data(), vCHRMemory.size());
+			chrBanks = header.chr_rom_chunks;
+			chrMemory.resize(chrBanks * 8192);
+			ifs.read((char*)chrMemory.data(), chrMemory.size());
 		}
 
 		if (nFileType == 2)
 		{
 
 		}
-		switch (nMapperID)
+		switch (mapperID)
 		{
-		case 0: pMapper = std::make_shared<Mapper_000>(nPRGBanks, nCHRBanks); break;
+		case 0: pMapper = std::make_shared<Mapper_000>(prgBanks, chrBanks); break;
 		}
 
-		bImageValid = true;
+		imageValid = true;
 		ifs.close();
 	}
 
@@ -65,9 +65,9 @@ Cartridge::~Cartridge()
 {
 }
 
-bool Cartridge::ImageValid()
+bool Cartridge::isImageValid()
 {
-	return bImageValid;
+	return imageValid;
 }
 
 bool Cartridge::cpuRead(uint16_t addr, uint8_t &data)
@@ -75,7 +75,7 @@ bool Cartridge::cpuRead(uint16_t addr, uint8_t &data)
 	uint32_t mapped_addr = 0;
 	if (pMapper->cpuMapRead(addr, mapped_addr))
 	{
-		data = vPRGMemory[mapped_addr];
+		data = prgMemory[mapped_addr];
 		return true;
 	}
 	else
@@ -87,7 +87,7 @@ bool Cartridge::cpuWrite(uint16_t addr, uint8_t data)
 	uint32_t mapped_addr = 0;
 	if (pMapper->cpuMapWrite(addr, mapped_addr))
 	{
-		vPRGMemory[mapped_addr] = data;
+		prgMemory[mapped_addr] = data;
 		return true;
 	}
 	else
@@ -99,7 +99,7 @@ bool Cartridge::ppuRead(uint16_t addr, uint8_t & data)
 	uint32_t mapped_addr = 0;
 	if (pMapper->ppuMapRead(addr, mapped_addr))
 	{
-		data = vCHRMemory[mapped_addr];
+		data = chrMemory[mapped_addr];
 		return true;
 	}
 	else
@@ -111,7 +111,7 @@ bool Cartridge::ppuWrite(uint16_t addr, uint8_t data)
 	uint32_t mapped_addr = 0;
 	if (pMapper->ppuMapRead(addr, mapped_addr))
 	{
-		vCHRMemory[mapped_addr] = data;
+		chrMemory[mapped_addr] = data;
 		return true;
 	}
 	else

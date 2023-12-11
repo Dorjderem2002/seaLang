@@ -9,12 +9,12 @@
 class Cartridge
 {
 public:	
-	Cartridge(const std::string& sFileName);
+	Cartridge(const std::string& fileName);
 	~Cartridge();
 
 
 public:
-	bool ImageValid();
+	bool isImageValid();
 
 	enum MIRROR
 	{
@@ -25,14 +25,14 @@ public:
 	} mirror = HORIZONTAL;
 
 private:
-	bool bImageValid = false;
+	bool imageValid = false;
 
-	uint8_t nMapperID = 0;
-	uint8_t nPRGBanks = 0;
-	uint8_t nCHRBanks = 0;
+	uint8_t mapperID = 0;
+	uint8_t prgBanks = 0;
+	uint8_t chrBanks = 0;
 
-	std::vector<uint8_t> vPRGMemory;
-	std::vector<uint8_t> vCHRMemory;
+	std::vector<uint8_t> prgMemory;
+	std::vector<uint8_t> chrMemory;
 
 	std::shared_ptr<Mapper> pMapper;
 
