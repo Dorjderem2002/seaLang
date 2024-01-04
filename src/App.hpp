@@ -6,6 +6,9 @@
 
 #include <SFML/Graphics.hpp>
 
+#include <memory>
+#include <map>
+
 class App 
 {
 public:

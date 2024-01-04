@@ -18,7 +18,13 @@ public:
 
     CPU cpu;
     PPU ppu;
+
+public:
+    void insertCartridge(const std::shared_ptr<Cartridge>& cartridge);
     std::shared_ptr<Cartridge> cart;
+
 private:
     uint8_t ram[64 * 1024];
+    uint8_t controller[2];
+	uint8_t controller_state[2];
 };

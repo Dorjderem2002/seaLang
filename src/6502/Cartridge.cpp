@@ -1,8 +1,7 @@
 #include "Cartridge.hpp"
 
-Cartridge::Cartridge(const std::string& fileName)
+Cartridge::Cartridge(const std::string& sFileName)
 {
-	// iNES Format Header
 	struct sHeader
 	{
 		char name[4];
@@ -19,7 +18,7 @@ Cartridge::Cartridge(const std::string& fileName)
 	imageValid = false;
 
 	std::ifstream ifs;
-	ifs.open(fileName, std::ifstream::binary);
+	ifs.open(sFileName, std::ifstream::binary);
 	if (ifs.is_open())
 	{
 		ifs.read((char*)&header, sizeof(sHeader));
@@ -41,7 +40,14 @@ Cartridge::Cartridge(const std::string& fileName)
 			ifs.read((char*)prgMemory.data(), prgMemory.size());
 
 			chrBanks = header.chr_rom_chunks;
-			chrMemory.resize(chrBanks * 8192);
+			if (chrBanks == 0)
+			{
+				chrMemory.resize(8192);
+			}
+			else
+			{
+				chrMemory.resize(chrBanks * 8192);
+			}
 			ifs.read((char*)chrMemory.data(), chrMemory.size());
 		}
 
@@ -51,7 +57,10 @@ Cartridge::Cartridge(const std::string& fileName)
 		}
 		switch (mapperID)
 		{
-		case 0: pMapper = std::make_shared<Mapper_000>(prgBanks, chrBanks); break;
+		case   0: pMapper = std::make_shared<Mapper_000>(prgBanks, chrBanks); break;
+		//case   2: pMapper = std::make_shared<Mapper_002>(prgBanks, chrBanks); break;
+		//case   3: pMapper = std::make_shared<Mapper_003>(prgBanks, chrBanks); break;
+		//case  66: pMapper = std::make_shared<Mapper_066>(prgBanks, chrBanks); break;
 		}
 
 		imageValid = true;
@@ -85,7 +94,7 @@ bool Cartridge::cpuRead(uint16_t addr, uint8_t &data)
 bool Cartridge::cpuWrite(uint16_t addr, uint8_t data)
 {
 	uint32_t mapped_addr = 0;
-	if (pMapper->cpuMapWrite(addr, mapped_addr))
+	if (pMapper->cpuMapWrite(addr, mapped_addr, data))
 	{
 		prgMemory[mapped_addr] = data;
 		return true;
@@ -109,11 +118,18 @@ bool Cartridge::ppuRead(uint16_t addr, uint8_t & data)
 bool Cartridge::ppuWrite(uint16_t addr, uint8_t data)
 {
 	uint32_t mapped_addr = 0;
-	if (pMapper->ppuMapRead(addr, mapped_addr))
+	if (pMapper->ppuMapWrite(addr, mapped_addr))
 	{
 		chrMemory[mapped_addr] = data;
 		return true;
 	}
 	else
 		return false;
+}
+
+
+void Cartridge::reset()
+{
+	if (pMapper != nullptr)
+		pMapper->reset();
 }

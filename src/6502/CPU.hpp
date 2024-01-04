@@ -32,6 +32,8 @@ public:
 	void interruptReq();	
 	void nonInterruptReq();
 	void clock();
+    void nmi();
+    bool complete();
 
     uint8_t fetch();
 

@@ -287,13 +287,36 @@ void CPU::clock()
 {
     if(cycles == 0)
     {
+        setFlag(U, true);
         opcode = read(pc++);
         cycles = tableOp[opcode].cycles;
         uint8_t addCycleAddr = (this->*tableOp[opcode].addrmode)();
         uint8_t addCycleOp =(this->*tableOp[opcode].operate)();
         cycles += (addCycleAddr & addCycleOp);
+        setFlag(U, true);
     }
     cycles--;
+}
+
+void CPU::nmi()
+{
+    write(0x0100 + stackPtr, (pc >> 8) & 0x00FF);
+	stackPtr--;
+	write(0x0100 + stackPtr, pc & 0x00FF);
+	stackPtr--;
+
+	setFlag(B, 0);
+	setFlag(U, 1);
+	setFlag(I, 1);
+	write(0x0100 + stackPtr, statRegister);
+	stackPtr--;
+
+	addr_abs = 0xFFFA;
+	uint16_t lo = read(addr_abs + 0);
+	uint16_t hi = read(addr_abs + 1);
+	pc = (hi << 8) | lo;
+
+	cycles = 8;
 }
 
 uint8_t CPU::getFlag(FLAGS f)

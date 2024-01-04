@@ -26,6 +26,17 @@ void App::init()
     std::cout << "Successfully initialised" << std::endl;
 
     win = new sf::RenderWindow(sf::VideoMode(768, 720), "Kimulator - 6502 Emulator");
+
+    cart = std::make_shared<Cartridge>("../nestest.nes");
+
+    if (!cart->isImageValid())
+        std::cout << "Wrong Image" << std::endl;
+
+    // Insert into NES
+    bus.insertCartridge(cart);
+
+    // Reset NES
+    bus.reset();
 }
 
 void App::event()
