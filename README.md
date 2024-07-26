@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-    <img src="images/banner.png" alt="Logo" width="200" height="80">
+    <img src="images/banner.png" alt="Logo" width="440" height="173">
 
   <h3 align="center">SEA-OS</h3>
 
