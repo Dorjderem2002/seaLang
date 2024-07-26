@@ -39,12 +39,10 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<img src="images/logo.png" alt="Screenshot">
 
 Obviously there are many succesfful or interesting operating system out there with more features.
 This project is solely made for learning. 
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 <!-- GETTING STARTED -->
@@ -75,9 +73,6 @@ _Below is an example of how you can instruct your audience on installing and set
    npm install
    ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 <!-- ROADMAP -->
 ## Roadmap
 
@@ -85,9 +80,6 @@ _Below is an example of how you can instruct your audience on installing and set
 - [ ] 
 - [ ] 
 - [ ] 
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- CONTRIBUTING -->
@@ -104,26 +96,15 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
 <!-- LICENSE -->
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
 <!-- CONTACT -->
 ## Contact
 
 Dorjderem Namsraijav - dorjderemdorj202@gmail.com
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
@@ -133,9 +114,6 @@ Use this space to list resources you find helpful and would like to give credit 
 * [OS Tutorial in Rust](https://osblog.stephenmarz.com/ch0.html)
 * [OS Tutorial in C++](http://www.brokenthorn.com/Resources/OSDev1.html)
 * [OS Tutorial in Youtube](https://www.youtube.com/watch?v=9t-SPC7Tczc&list=PLFjM7v6KGMpiH2G-kT781ByCNC_0pKpPN&index=1&pp=iAQB)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
