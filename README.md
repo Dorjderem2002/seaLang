@@ -106,17 +106,6 @@ _Below is an example of how you can instruct your audience on installing and set
 
 
 
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
 <!-- ROADMAP -->
 ## Roadmap
 
@@ -164,7 +153,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Dorjderem Namsraijav - [@your_twitter](https://twitter.com/your_username) - dorjderemdorj202@gmail.com
+Dorjderem Namsraijav - dorjderemdorj202@gmail.com
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
