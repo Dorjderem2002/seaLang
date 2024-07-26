@@ -39,7 +39,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<img src="images/logo.png" alt="Screenshot">
+<img src="images/banner.png" alt="Screenshot">
 
 Obviously there are many succesfful or interesting operating system out there with more features.
 This project is solely made for learning. 
@@ -68,9 +68,13 @@ _Below is an example of how you can instruct your audience on installing and set
    ```sh
    git clone https://github.com/Dorjderem2002/seaOS
    ```
-3. Install NPM packages
+3. Make
    ```sh
-   npm install
+   make
+   ```
+4. Run qemu
+   ```sh
+   qemu-system-i386 -fda build/main_floppy.img
    ```
 
 <!-- ROADMAP -->
