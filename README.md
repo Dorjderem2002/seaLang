@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-    <img src="images/logo.png" alt="Logo" width="100" height="100">
+    <img src="images/logo_lang.png" alt="Logo" width="100" height="100">
 
   <h3 align="center">seaLang</h3>
 
