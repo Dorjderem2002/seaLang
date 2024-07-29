@@ -3,10 +3,10 @@
 <div align="center">
     <img src="images/logo.png" alt="Logo" width="100" height="100">
 
-  <h3 align="center">SEA-OS</h3>
+  <h3 align="center">seaLang</h3>
 
   <p align="center">
-    Operating system written in C++ from scratch
+    Interpreter written in python :)
   </p>
 </div>
 
@@ -54,9 +54,13 @@ To get a local copy up and running follow these simple example steps.
 ### Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
-* brew
+* Mac
   ```sh
-  brew install qemu nasm
+  brew install python
+  ```
+* Linux
+  ```sh
+  sudo apt install python
   ```
 
 ### Installation
@@ -64,24 +68,16 @@ This is an example of how to list things you need to use the software and how to
 1. Install the dependecies
 2. Clone the repo
    ```sh
-   git clone https://github.com/Dorjderem2002/seaOS
-   ```
-3. Make
-   ```sh
-   make
-   ```
-4. Run qemu
-   ```sh
-   qemu-system-i386 -fda build/main_floppy.img
+   git clone https://github.com/Dorjderem2002/seaLang
    ```
 
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Bootloader
-- [ ] 
-- [ ] 
-- [ ] 
+- [ ] Lexer, Token
+- [ ] Parser
+- [ ] AST
+- [ ] Optimization
 
 
 <!-- CONTRIBUTING -->
@@ -107,15 +103,6 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 ## Contact
 
 Dorjderem Namsraijav - dorjderemdorj202@gmail.com
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
-* [OS Tutorial in Rust](https://osblog.stephenmarz.com/ch0.html)
-* [OS Tutorial in C++](http://www.brokenthorn.com/Resources/OSDev1.html)
-* [OS Tutorial in Youtube](https://www.youtube.com/watch?v=9t-SPC7Tczc&list=PLFjM7v6KGMpiH2G-kT781ByCNC_0pKpPN&index=1&pp=iAQB)
 
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
