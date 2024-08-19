@@ -74,9 +74,9 @@ This is an example of how to list things you need to use the software and how to
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Lexer, Token
-- [ ] Parser
-- [ ] AST
+- [x] Lexer, Token
+- [x] Parser
+- [x] AST
 - [ ] Optimization
 
 
