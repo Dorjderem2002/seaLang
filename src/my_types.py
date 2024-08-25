@@ -1,4 +1,4 @@
-INTEGER, PLUS, MINUS, MUL, DIV, MOD, LPAREN, RPAREN, EOF = (
+INTEGER, PLUS, MINUS, MUL, DIV, MOD, LPAREN, RPAREN, LCURLY, RCURLY, EOF, EOL, SEMI = (
     "INTEGER",
     "PLUS",
     "MINUS",
@@ -7,5 +7,11 @@ INTEGER, PLUS, MINUS, MUL, DIV, MOD, LPAREN, RPAREN, EOF = (
     "MOD",
     "(",
     ")",
+    "{",
+    "}",
     "EOF",
+    "EOL",
+    ";",
 )
+
+VARIABLE, ASSIGN = ("VARIABLE", "ASSIGN")

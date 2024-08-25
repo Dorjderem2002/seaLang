@@ -1,6 +1,6 @@
 from lang_token import Token
 from my_types import *
-from nodes import Node, OpNode, NumNode, UnaryNode
+from nodes import Node, OpNode, NumNode, UnaryNode, VarNode, AssNode, CompNode, NoOp
 from typing import List
 from lexer import Lexer
 
@@ -11,7 +11,45 @@ class Parser:
         self.current_token: Token = self.lexer.next_token()
 
     def parse(self) -> Node:
-        return self.expr()
+        return self.compound_statement()
+
+    def compound_statement(self):
+        self.eat(LCURLY)
+        nodes = self.statement_list()
+        self.eat(RCURLY)
+
+        root = CompNode()
+        for node in nodes:
+            root.children.append(node)
+        return root
+
+    def statement_list(self):
+        node = self.statement()
+        result = [node]
+        while self.current_token.type == SEMI:
+            self.eat(SEMI)
+            result.append(self.statement())
+        if self.current_token.type == VARIABLE:
+            raise Exception("Invalid Syntax")
+        return result
+
+    def statement(self):
+        if self.current_token.type == LCURLY:
+            node = self.compound_statement()
+        elif self.current_token.type == VARIABLE:
+            node = self.assignment_statement()
+        else:
+            node = NoOp()
+        return node
+
+    def assignment_statement(self):
+        left = VarNode(self.current_token)
+        self.eat(VARIABLE)
+        token = self.current_token
+        self.eat(ASSIGN)
+        right = self.expr()
+        node = AssNode(left, right, token)
+        return node
 
     def eat(self, token_type):
         if self.current_token.type == token_type:
@@ -68,4 +106,7 @@ class Parser:
             node = self.expr()
             self.eat(RPAREN)
             return node
+        elif token.type == VARIABLE:
+            self.eat(VARIABLE)
+            return VarNode(token)
         raise Exception("Invalid Syntax")
