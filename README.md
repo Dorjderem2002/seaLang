@@ -41,8 +41,7 @@
 
 <img src="images/banner.png" alt="Screenshot">
 
-Obviously there are many succesfful or interesting interpreters out there with more features.
-This project is solely made for learning. 
+While there are numerous successful and intriguing interpreters available, this project is exclusively crafted for educational purposes. It is designed to facilitate learning and experimentation, prioritizing educational value over additional features or complexity.
 
 
 <!-- GETTING STARTED -->
