@@ -76,6 +76,11 @@ This is an example of how to list things you need to use the software and how to
 - [x] Lexer, Token
 - [x] Parser
 - [x] AST
+- [x] Variables
+- [x] Scopes
+- [ ] Conditions
+- [ ] Loops
+- [ ] Functions
 - [ ] Optimization
 
 
