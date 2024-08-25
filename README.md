@@ -41,7 +41,7 @@
 
 <img src="images/banner.png" alt="Screenshot">
 
-Obviously there are many succesfful or interesting operating system out there with more features.
+Obviously there are many succesfful or interesting interpreters out there with more features.
 This project is solely made for learning. 
 
 
